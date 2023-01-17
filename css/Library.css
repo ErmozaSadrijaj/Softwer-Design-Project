@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  /*search*/
+.search{
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  line-height: 2em;
+}
+.search label{
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bolder;
+}
+#book-search{
+  border: 2px solid black;
+  border-radius: 50px;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  width: 500px;
+  height: 50px;
+}
+.searchBtn{
+    max-width: 20%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    font-weight: 300;
+    margin-left: 220px;
+    margin-top: 20px;
+}
+/*content*/
+.books{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.st{
+  font-size: 50px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.light1{
+  max-width: 400px;
+}
+

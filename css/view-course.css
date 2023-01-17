@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: none;
+}
+.container{
+    list-style-type: none !important;
+    font-size: 20px;
+}
+#topic{
+    color: #262626;
+    text-decoration: none;
+}
+#topic:hover{
+    color: #A6A6A6;
+}
+.section{
+    border-bottom: 2px solid #BFBFBF ;
+}
+.section{
+    margin-left: 50px;
+}

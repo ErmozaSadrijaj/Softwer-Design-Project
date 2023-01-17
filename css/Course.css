@@ -1,0 +1,11 @@
+body{
+  background: linear-gradient(0.25turn, #bfd2da, #6c6d6b);
+}
+h1{
+  border-bottom: 2px solid black;
+ 
+}
+.shn a,.shsh a{
+  color: black;
+ 
+}

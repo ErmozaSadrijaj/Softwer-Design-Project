@@ -1,0 +1,241 @@
+{
+  "users":[
+      {
+          "id":1,
+          "name":"user1",
+          "email":"email@gmail.com",
+          "password":"123",
+          "role":"student"
+      },{
+        "id":2,
+        "name":"user2",
+        "email":"email2@gmail.com",
+        "password":"123",
+        "role":"teacher"
+    }
+  ],
+  "blogs":[
+    {
+        "id":1,
+        "title":"Blog1",
+        "pic":"./Photo/gjimnazi.jpg",
+        "content":" Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."       
+    },{
+        "id":2,
+        "title":"Blog2",
+        "pic":"./Photo/gjimnazi.jpg",
+        "content":" Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."       
+    }
+    ],
+    "books":[
+        {
+            "id":1,
+            "title":"Systems Analysis and Design 1",
+            "author":"Scott Tilley",
+            "link":"https://ebin.pub/download/systems-analysis-and-design-12nbsped-0357117816-9780357117811.html"
+        },
+        {
+            "id":2,
+            "title":"Systems Analysis and Design 2",
+            "author":"Scott Tilley",
+            "link":"https://ebin.pub/download/systems-analysis-and-design-12nbsped-0357117816-9780357117811.html"
+        },
+        {
+            "id":3,
+            "title":"Systems Analysis and Design 3",
+            "author":"Scott Tilley",
+            "link":"https://ebin.pub/download/systems-analysis-and-design-12nbsped-0357117816-9780357117811.html"
+        },
+        {
+            "id":4,
+            "title":"Systems Analysis and Design 4",
+            "author":"Scott Tilley",
+            "link":"https://ebin.pub/download/systems-analysis-and-design-12nbsped-0357117816-9780357117811.html"
+        },
+        {
+            "id":5,
+            "title":"Systems Analysis and Design 5",
+            "author":"Scott Tilley",
+            "link":"https://ebin.pub/download/systems-analysis-and-design-12nbsped-0357117816-9780357117811.html"
+        },
+        {
+            "id":6,
+            "title":"Systems Analysis and Design 6",
+            "author":"Scott Tilley",
+            "link":"https://ebin.pub/download/systems-analysis-and-design-12nbsped-0357117816-9780357117811.html"
+        }
+    ],
+    "courses":[
+        {
+            "id":"1",
+            "title":"Kimi",
+            "category":"Shkenca Natyrore"
+        },
+        {
+            "id":"2",
+            "title":"Fizikë",
+            "category":"Shkenca Natyrore"
+        },{
+            "id":"3",
+            "title":"Biologji",
+            "category":"Shkenca Natyrore"
+        },{
+            "id":"4",
+            "title":"Astronomi",
+            "category":"Shkenca Natyrore"
+        },{
+            "id":"5",
+            "title":"Biologji",
+            "category":"Shkenca Natyrore"
+        },{
+            "id":"6",
+            "title":"Matematikë 1",
+            "category":"Shkenca Natyrore"
+        },{
+            "id":"7",
+            "title":"Matematikë 2",
+            "category":"Shkenca Natyrore"
+        },{
+            "id":"8",
+            "title":"Histori",
+            "category":"Shkenca Shoqerore"
+        },{
+            "id":"9",
+            "title":"Psikologji",
+            "category":"Shkenca Shoqerore"
+        },{
+            "id":"10",
+            "title":"Sociologji",
+            "category":"Shkenca Shoqerore"
+        },{
+            "id":"11",
+            "title":"Ed. Qytetare",
+            "category":"Shkenca Shoqerore"
+        },{
+            "id":"12",
+            "title":"Filozofi",
+            "category":"Shkenca Shoqerore"
+        },{
+            "id":"13",
+            "title":"Muzikë",
+            "category":"Shkenca Shoqerore"
+        },{
+            "id":"14",
+            "title":"Psikologji",
+            "category":"Shkenca Shoqerore"
+        },{
+            "id":"15",
+            "title":"Sociologji",
+            "category":"Shkenca Shoqerore"
+        }
+    ],
+    "topics":[
+        {
+            "id":1,
+            "title":"Kimi - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":1
+        },
+        {
+            "id":2,
+            "title":"Fizikë - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":2
+        },
+        {
+            "id":3,
+            "title":"Biologji - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":3
+        },
+        {
+            "id":4,
+            "title":"Astronimi - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":4
+        },
+        {
+            "id":5,
+            "title":"Biologji - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":5
+        },
+        {
+            "id":6,
+            "title":"Matematikë 1 - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":6
+
+        },
+        {
+            "id":7,
+            "title":"Matematikë 2 - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":7
+
+        },
+        {
+            "id":7,
+            "title":"Matematikë 2 - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":7
+
+        },
+        {
+            "id":8,
+            "title":"Histori - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":8
+
+        },
+        {
+            "id":9,
+            "title":"Psikologji - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":9
+
+        },
+        {
+            "id":10,
+            "title":"Sociologji - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":10
+
+        },
+        {
+            "id":11,
+            "title":"Ed. Qytetare - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":11
+
+        },
+        {
+            "id":12,
+            "title":"Filozofi - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":12
+
+        },
+        {
+            "id":13,
+            "title":"Muzikë - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":13
+
+        },
+        {
+            "id":14,
+            "title":"Psikologji - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":14
+
+        },
+        {
+            "id":15,
+            "title":"Sociologji - Ligjërata 1",
+            "link":"https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf"
+            ,"courseId":15
+
+        }
+    ]
+}

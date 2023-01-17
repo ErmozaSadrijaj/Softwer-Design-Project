@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*content*/
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
+
+/*Blo*/
+.col a h1{
+  font-size: 50px;
+  margin-left: 50px;
+}
+h1{
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: bold;
+  font-style: italic;
+}  
+#txn{
+  text-decoration: none;
+  color: black;
+}
+.light1{
+  margin-right: 100px;
+  margin-left: 20px;
+  border: 1px solid black;
+  margin-top: -30px;
+}
+
+.card-blog{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-left: -100px;
+  margin-top: -20px;
+
+}
+.card-img{
+  height: 100%;
+}
+.card-img-overlay{
+  margin-top: 70px;
+}
+
+.card {
+  float: left;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 300px;
+	height: 400px;
+	background: #fff;
+	box-shadow: -15px 7px 30px rgba(0, 0, 0, 0.7);
+	overflow: hidden;
+	border-radius: 20px;
+  margin-inline: 20px;
+  margin-left: 80px;
+  margin-top: 30px;
+}
+
+.tit {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  display: inline-block;
+	background: #E2E5E7;
+	padding: 0.5rem 1rem;
+	border: 1px solid #000;
+	border-radius: 15px;
+  cursor: pointer;
+ text-align: center;
+ margin-top: 10px;
+}
+a {
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  margin-inline: 5px;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+/*staf*/
+.row{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.col-lg-3{
+  margin-left: 20px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
+.progress {
+  height: 10px;
+}
