@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" type="text/css" href="./css/Library.css">
-    <link rel="stylesheet" type="text/css" href="./css/nav.css">
+    <link  rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <script type="module" src="./jsFiles/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <!-- Optional JavaScript -->
@@ -21,6 +22,7 @@
     <nav id="navbar">
     
     </nav>
+    
 
 <!--search-->
 <div class="search">
@@ -33,10 +35,12 @@
 <!---Books---->
 <section>
 <div class="books" >
-    <div class="col">
+    <div class="col d-flex justify-content-between w-100">
       <h1 class="st">All Books</h1>
-      <hr class="light1" color="black">
+      <button class="btn btn-outline-primary h-25 m-3 d-none" id="AddBookButton">Add Book</button>
     </div>  
+    <hr class="light1" color="black">
+
     <div id="book-card" class="d-flex flex-wrap justify-content-center container" >
      
     </div>
@@ -51,17 +55,29 @@
 </body>
 <script type="module">
   import{getNavbar,getFooter} from '/jsFiles/mainElements.js'
-  import{getCards} from '/jsFiles/library.js'
+  import{getCards,addBook} from '/jsFiles/library.js'
  
   getNavbar('navbar')
   getFooter('footer')
   getCards('book-card',false)
  
+  const btn = document.getElementById('AddBookButton')
+  if(localStorage.getItem('user') === 'teacher'){
+    
+    btn.classList.add('d-flex')
+    btn.classList.remove('d-none')
+  }
+
+  btn.addEventListener('click', event => {
+          event.preventDefault()
+          const searchString = document.getElementById('book-search').value        
+          addBook()         
+        })
+
   const srch= document.querySelector('#searchbtn')
   srch.addEventListener('click', event => {
           event.preventDefault()
-          const searchString = document.getElementById('book-search').value
-          
+          const searchString = document.getElementById('book-search').value        
           getCards('book-card',searchString)
           
         })

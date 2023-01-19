@@ -37,3 +37,22 @@ export function getCards(div,search){
                 document.getElementById(div).innerHTML = result
         })
 }
+export function addBook(){
+  alert('add book called')
+  fetch(`http://localhost:4000/books`, {
+     method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        id: 'id',
+        title: 'title',
+        author: 'author',                
+        link: 'link'
+          
+      })
+    })
+    .then(response => response.json())
+    .then(data => window.confirm('You were succesfully registred!'))
+    .catch(error => alert(error))
+}

@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Course</title>
-    <link rel="stylesheet" type="text/css" href="./css/nav.css">
+    <link  rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <script type="module" src="./jsFiles/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css"  href="/css/view-course.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -25,108 +26,12 @@
 
      <!---content-->
      <div class="container m-5">
-        <li id="section-1" class="section main clearfix" role="region" aria-labelledby="sectionid-469137-title" data-sectionid="1" data-sectionreturnid="0">
-            <div class="content" id="content">
-                <h3 id="sectionname" class="sectionname">
-                    <span id="titulli">
-                        <a href="/view-course.html" id="topic">Topic 1</a>
-                    </span>
-                </h3>
-                <ul class="section img-text">
-                    <li class="activity resource modtype_resource  hasinfo" id="module-323191">
-                        <div class="mod-indent-outer w-100">
-                            <div class="activityinstance">
-                                <a class="aalink" onclick="" href="https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf">
-                                    <img src="/Photo/PDF.png" class="activityicon" alt="" role="presentation" aria-hidden="true" width="30px">
-                                    <span class="instancename">Matematikë - Ligjërata 1</span>
-                                </a> 
-                                    <span class="resourcelinkdetails">PDF document Uploaded 18/10/22, 01:01</span>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+       
+            <div class="content" id="topic-content">
+               
             </div>
-        </li>
+       
     
-    
-        <li id="section-2" class="section main clearfix" role="region" aria-labelledby="sectionid-469137-title" data-sectionid="2" data-sectionreturnid="0">
-            <div class="content" id="content">
-                <h3 id="sectionname" class="sectionname">
-                    <span id="titulli">
-                        <a href="/view-course.html" id="topic">Topic 2</a>
-                    </span>
-                </h3>
-                <ul class="section img-text">
-                    <li class="activity resource modtype_resource  hasinfo" id="module-323191">
-                        <div class="mod-indent-outer w-100">
-                            <div class="activityinstance">
-                                <a class="aalink" onclick="" href="/view-course.html">
-                                    <img src="/Photo/PDF.png" class="activityicon" alt="" role="presentation" aria-hidden="true" width="30px">
-                                    <span class="instancename">Matematikë - Ligjërata 2</span>
-                                </a> 
-                                    <span class="resourcelinkdetails">PDF document Uploaded 19/10/22, 01:01</span>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-    
-        <li id="section-3" class="section main clearfix" role="region" aria-labelledby="sectionid-469137-title" data-sectionid="3" data-sectionreturnid="0">
-            <div class="content" id="content">
-                <h3 id="sectionname" class="sectionname">
-                    <span id="titulli">
-                        <a href="/view-course.html" id="topic">Topic 3</a>
-                    </span>
-                </h3>
-                <ul class="section img-text">
-                    <li class="activity resource modtype_resource  hasinfo" id="module-323191">
-                        <div class="mod-indent-outer w-100">
-                            <div class="activityinstance">
-                                <a class="aalink" onclick="" href="/view-course.html">
-                                    <img src="/Photo/PDF.png" class="activityicon" alt="" role="presentation" aria-hidden="true" width="30px">
-                                    <span class="instancename">Matematikë - Ligjërata 3</span>
-                                </a> 
-                                    <span class="resourcelinkdetails">PDF document Uploaded 20/10/22, 01:01</span>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-
-
-
-        <li id="section-4" class="section main clearfix" role="region" aria-labelledby="sectionid-469137-title" data-sectionid="4" data-sectionreturnid="0">
-            <div class="content" id="content">
-                <h3 id="sectionname" class="sectionname">
-                    <span id="titulli">
-                        <a href="/view-course.html" id="topic">Topic 4</a>
-                    </span>
-                </h3>
-            </div>
-        </li>
-
-        <li id="section-5" class="section main clearfix" role="region" aria-labelledby="sectionid-469137-title" data-sectionid="5" data-sectionreturnid="0">
-            <div class="content" id="content">
-                <h3 id="sectionname" class="sectionname">
-                    <span id="titulli">
-                        <a href="/view-course.html" id="topic">Topic 5</a>
-                    </span>
-                </h3>
-            </div>
-        </li>
-
-        <li id="section-6" class="section main clearfix" role="region" aria-labelledby="sectionid-469137-title" data-sectionid="6" data-sectionreturnid="0">
-            <div class="content" id="content">
-                <h3 id="sectionname" class="sectionname">
-                    <span id="titulli">
-                        <a href="/view-course.html" id="topic">Topic 6</a>
-                    </span>
-                </h3>
-            </div>
-        </li>
-     </div>
      
 
      <!---footer-->
@@ -141,7 +46,7 @@
     getFooter('footer')
 
     const getId =getItemFromURL(document.URL,'id')
-    getOneCourse('oneCourseData',getId)
+    getOneCourse('topic-content',getId)
 </script>
 </body>
 </html>

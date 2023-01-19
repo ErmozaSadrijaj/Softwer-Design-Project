@@ -4,67 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gjimnazi "Bedri Pejani"</title>
+    <title>View Course</title>
     <link  rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <script type="module" src="./jsFiles/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/csss" href="./css/Blo.css">
-    <script type="module" src="./jsFiles/Blo.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"  href="/css/view-course.css">
+    <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <!--
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  </head>
 
+     --></head>
 <body>
-
-<!--navbar-->
-<nav id="navbar">
+     <!--navbar-->
+     <nav id="navbar">
     
-</nav>
+     </nav>
 
-<!---Content-->
-<div class="tit text-center">
-    <h3>Gjimnazi "Bedri Pejani" </h3>
-    <span class="nentit">Blog</span>
-</div>
-<hr class="light">
-
-<main>
-    <div class="container">
-        <div class="row" id="blog">
-            
+     <!---content-->
+    <section class="container" id="student-content">
+           
+           
+    </section>
+    <section class="container">
+        <div class="row">
+            <table class=" text-light table " id="table">
+               
+                
+            </table>           
         </div>
-    </div>
-</main>
+    </section>
 
-<!---footer-->
+     <!---footer-->
 <footer id="footer">
     
 </footer>
-</body>
 <script type="module">
-  import{getNavbar,getFooter} from '/jsFiles/mainElements.js'
-  import{getBlogs} from '/jsFiles/blog.js'
- 
-  getNavbar('navbar')
-  getFooter('footer')
-  getBlogs('blog')
-  
-    const rm = document.getElementById('readMore')
-    rm.addEventListener('click' , e =>{
-        e.preventDefault
+    import {getNavbar,getFooter,getItemFromURL} from '/jsFiles/mainElements.js'
+    import {getOneStudent,getStudentGrades} from '/jsFiles/users.js'
 
-    })
-    const a = document.querySelector('#sign-out')
-          a.addEventListener('click', event => {
-          event.preventDefault()
-          localStorage.removeItem('user')
-          location.reload()
-        })
+    getNavbar('navbar')
+    getFooter('footer')
 
+    const getId =getItemFromURL(document.URL,'id')
+    getOneStudent('student-content',getId)
+    getStudentGrades('table',getId)
 </script>
+</body>
 </html>
