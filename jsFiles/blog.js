@@ -32,10 +32,11 @@ export function getOneBlog(div,id){
         .then(response => response.json())
         .then(blog => {        
                         result +=`
-                        <div class="container">
+                        <div class="container m-5">
                             <div class="row">
-                                <img src="${blog.pic}" alt="">
-                                <h2>${blog.title}</h2>
+                            <h2>${blog.title}</h2>
+                                <img src="${blog.pic}" class="w-50" alt="">
+                                
                             </div>
                             <div class="row">
                                 <p>${blog.content}</p>

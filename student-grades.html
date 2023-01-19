@@ -4,25 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Student</title>
+    <title>Student Grades</title>
     <link  rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <script type="module" src="./jsFiles/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-   </head>
+</head>
 <body>
      <!--navbar-->
      <nav id="navbar">
     
      </nav>
 
-     <!---content-->
-    <section class="container" id="student-content">
-           
-           
-    </section>
     <section class="container">
         <div class="row">
-            <table class=" text-light table " id="table">
+            <table class=" text-light table my-5" id="table">
                
                 
             </table>           
@@ -41,14 +36,12 @@
     getFooter('footer')
 
     const getId =getItemFromURL(document.URL,'id')
-    getOneStudent('student-content',getId)
     getStudentGrades('table',getId)
-
     const a = document.querySelector('#sign-out')
-            a.addEventListener('click', event => {
-            event.preventDefault()
-            signOut()
-          })
+          a.addEventListener('click', event => {
+          event.preventDefault()
+          signOut()
+        })
 </script>
 </body>
 </html>

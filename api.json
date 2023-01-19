@@ -5,25 +5,7 @@
       "name": "user1",
       "surname": "surname1",
       "email": "student1@gmail.com",
-      "pic": "./Photo/student.jpg",
-      "password": "1",
-      "teacher": 1
-    },
-    {
-      "id": 3,
-      "name": "user3",
-      "surname": "surname3",
-      "email": "student3@gmail.com",
-      "pic": "./Photo/student.jpg",
-      "password": "1",
-      "teacherId": 1
-    },
-    {
-      "id": 4,
-      "name": "user4",
-      "surname": "surname4",
-      "email": "student4@gmail.com",
-      "pic": "./Photo/student.jpg",
+      "pic": "./Photo/student.png",
       "password": "1",
       "teacherId": 1
     },
@@ -32,9 +14,27 @@
       "name": "user2",
       "surname": "surname2",
       "email": "student2@gmail.com",
-      "pic": "./Photo/student.jpg",
+      "pic": "./Photo/student.png",
       "password": "1",
       "teacherId": 2
+    },
+    {
+      "id": 3,
+      "name": "user3",
+      "surname": "surname3",
+      "email": "student3@gmail.com",
+      "pic": "./Photo/student.png",
+      "password": "1",
+      "teacherId": 1
+    },
+    {
+      "id": 4,
+      "name": "user4",
+      "surname": "surname4",
+      "email": "student4@gmail.com",
+      "pic": "./Photo/student.png",
+      "password": "1",
+      "teacherId": 1
     }
   ],
   "teachers": [
@@ -42,12 +42,14 @@
       "id": 1,
       "name": "teacher1",
       "email": "teacher1@gmail.com",
+      "pic": "./Photo/teacher.png",
       "password": "1"
     },
     {
       "id": 2,
       "name": "teacher2",
       "email": "teacher2@gmail.com",
+      "pic": "./Photo/teacher.png",
       "password": "1"
     }
   ],
@@ -103,10 +105,22 @@
       "link": "https://ebin.pub/download/systems-analysis-and-design-12nbsped-0357117816-9780357117811.html"
     },
     {
-      "id": "7",
+      "id": 7,
       "title": "Systems Analysis and Design 6",
       "author": "Scott Tilley",
       "link": "https://ebin.pub/download/systems-analysis-and-design-12nbsped-0357117816-9780357117811.html"
+    },
+    {
+      "title": "title",
+      "author": "author",
+      "link": "link",
+      "id": 8
+    },
+    {
+      "title": "asdsa",
+      "author": "ddasdas",
+      "link": "dassssssssssssssssss",
+      "id": 9
     }
   ],
   "courses": [
@@ -514,42 +528,42 @@
     {
       "gradeId": 1,
       "grade": 1,
-      "courseId": 1,
+      "course": "Kimi",
       "teacherId": 1,
       "studentId": 1
     },
     {
       "gradeId": 2,
       "grade": 2,
-      "courseId": 2,
+      "course": "Kimi",
       "teacherId": 2,
       "studentId": 2
     },
     {
       "gradeId": 3,
       "grade": 3,
-      "courseId": 3,
+      "course": "Kimi",
       "teacherId": 1,
       "studentId": 2
     },
     {
       "gradeId": 4,
       "grade": 4,
-      "courseId": 4,
+      "course": "Matematik",
       "teacherId": 2,
       "studentId": 1
     },
     {
       "gradeId": 5,
       "grade": 5,
-      "courseId": 5,
+      "course": "Biologji",
       "teacherId": 1,
       "studentId": 1
     },
     {
       "gradeId": 6,
       "grade": 2,
-      "courseId": 6,
+      "course": "Fizik",
       "teacherId": 2,
       "studentId": 1
     }

@@ -1,4 +1,5 @@
 export function getNavbar(div){
+  const id = localStorage.getItem('currentID')
     let result =  `<nav class="navbar navbar-expand-sm navbar-dark">
     <h4 class="mt-2"><a class="Title mx-2"> Gjimnazi "Bedri Pejani"</a></h4>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +9,8 @@ export function getNavbar(div){
       <ul class="navbar-nav" >
         <li class="nav-item ">
           <a class="nav-link d-flex" id="home" href="/home.html">Home</a>
-          <a class="nav-link d-none" id="teacher" href="/Teacher.html">Home</a>
+          <a class="nav-link d-none" id="teacher" href="/teacher.html">Profile</a>
+          <a class="nav-link d-none" id="student-profile" href="/student.html">Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link d-flex" id="Blog" href="/Blo.html">Blog</a>
@@ -21,6 +23,7 @@ export function getNavbar(div){
         <li class="nav-item">
           <a class="nav-link  d-flex" id="Contact" href="/Contact.html">Contact</a>
           <a class="nav-link d-none" id="Students" href="/TechStudent.html">Students</a>
+          <a class="nav-link d-none" id="student-grades" href="student-grades.html?id=${id}">Grades</a>
         </li>
         <li class="nav-item">
           <a class="nav-link d-flex" id="login" href="Login.html">Log In</a>
@@ -32,10 +35,12 @@ export function getNavbar(div){
     
     document.getElementById(div).innerHTML = result
     let a = localStorage.getItem('user')
-    if(a === 'teacher'){
+    if(a === 'teacher' || a === 'student'){
+
       const login = document.getElementById('login')
       login.classList.add('d-none')
       login.classList.remove('d-flex')
+
       const out = document.getElementById('sign-out')
       out.classList.add('d-flex')
       out.classList.remove('d-none')
@@ -43,6 +48,7 @@ export function getNavbar(div){
       const Blog = document.getElementById('Blog')
       Blog.classList.add('d-none')
       Blog.classList.remove('d-flex')
+
       const Library = document.getElementById('Library')
       Library.classList.add('d-flex')
       Library.classList.remove('d-none')
@@ -50,6 +56,7 @@ export function getNavbar(div){
       const About = document.getElementById('About')
       About.classList.add('d-none')
       About.classList.remove('d-flex')
+
       const Course = document.getElementById('Course')
       Course.classList.add('d-flex')
       Course.classList.remove('d-none')
@@ -57,17 +64,30 @@ export function getNavbar(div){
       const Contact = document.getElementById('Contact')
       Contact.classList.add('d-none')
       Contact.classList.remove('d-flex')
-      const Students = document.getElementById('Students')
-      Students.classList.add('d-flex')
-      Students.classList.remove('d-none')
+
+      if(a === 'teacher'){
+        const Students = document.getElementById('Students')
+        Students.classList.add('d-flex')
+        Students.classList.remove('d-none')
+
+        const teacher = document.getElementById('teacher')
+        teacher.classList.add('d-flex')
+        teacher.classList.remove('d-none')
+        
+      }else if(a === 'student'){
+        const grd = document.getElementById('student-grades')
+        grd.classList.add('d-flex')
+        grd.classList.remove('d-none')
+        const prf = document.getElementById('student-profile')
+        prf.classList.add('d-flex')
+        prf.classList.remove('d-none')
+
+      }
 
       const home = document.getElementById('home')
       home.classList.add('d-none')
       home.classList.remove('d-flex')
-      const teacher = document.getElementById('teacher')
-      teacher.classList.add('d-flex')
-      teacher.classList.remove('d-none')
-      
+  
     }
 }
 export function getItemFromURL(url, item) {
