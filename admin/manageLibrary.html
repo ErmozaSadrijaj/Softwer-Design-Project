@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link  rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <script type="module" src="../jsFiles/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+<body>
+     <!--navbar-->
+     <nav id="navbar">
+    
+     </nav>
+
+     <button type="button" id="addBkBtn" class="btn btn-primary m-1  float-end mx-5 mt-2" data-bs-toggle="modal"  data-bs-target="#addBook">
+        Add Book
+      </button>
+      <br><br><br>
+    <section class="container">
+        <div class="row">
+            <table class=" text-light table mt-3" id="table">
+                
+                
+            </table>           
+        </div>
+    </section>
+
+<!--Modal-->
+
+<div class="modal fade" id="addBook" tabindex="-1" aria-labelledby="addBookLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="addBookLabel">Add Book</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form class="d-flex flex-column">
+            <label for="title">Book Title:</label>
+            <input type="text" name="title" placeholder="Enter Book Title..." id="book-title">
+            <label for="text">Book Author:</label>
+            <input type="text" name="title" placeholder="Enter Book Author..." id="book-author">
+            <label for="link">Book Link:</label>
+            <input type="link" name="book" placeholder="Enter Book link..." id="book-link">
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="addBookButton">Add Book</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script type="module">
+    import {getAdminNavbar,signOut} from '/jsFiles/mainElements.js'
+    import {getAllBooks,addBook,deleteBook} from '/jsFiles/library.js'
+
+    getAdminNavbar('navbar')
+    getAllBooks('table')
+
+    const addBtn = document.getElementById('addBookButton')
+    addBtn.addEventListener('click', e =>{
+        e.preventDefault()
+        var title = document.getElementById('book-title').value
+        var author = document.getElementById('book-author').value
+        var link = document.getElementById('book-link').value
+        addBook(title,author,link)
+    })
+
+
+    const parent = document.querySelector("#table");
+                parent.addEventListener("click", function(event) {
+                    var buttonValue = event.target.getAttribute("value");
+                    if(event.target && event.target.id === "deleteBook") {
+                       
+                        deleteBook(buttonValue)
+                    }
+            });
+
+
+    const a = document.querySelector('#sign-out')
+            a.addEventListener('click', event => {
+            event.preventDefault()
+            signOut()
+          })
+</script>
+</body>
+</html>

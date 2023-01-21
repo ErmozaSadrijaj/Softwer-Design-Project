@@ -38,7 +38,6 @@ export function getCards(div,search){
         })
 }
 export function addBook(title,author,link){
-  alert('add book called')
   fetch(`http://localhost:4000/books`, {
      method: 'POST',
     headers: {
@@ -54,4 +53,51 @@ export function addBook(title,author,link){
     .then(response => response.json())
     .then(data => window.confirm('Book successfully added!'))
     .catch(error => alert(error))
+}
+
+export function getAllBooks(div){
+
+  let result = ''
+  let i = 0
+  result +=`
+      <tr class="fs-5 bg-dark fw-bold">
+              <td style="border-bottom:2px solid #f46533 !important">Nr.</td>
+              <td style="border-bottom:2px solid #f46533 !important">Title</td>
+              <td style="border-bottom:2px solid #f46533 !important">Author</td>
+              <td style="border-bottom:2px solid #f46533 !important">Link</td>
+              <td style="border-bottom:2px solid #f46533 !important">Options</td>
+      </tr> 
+  `
+  fetch(`http://localhost:4000/books`)
+  .then(response => response.json())
+  .then(books => {    
+        
+      books.forEach(book =>{
+          i++
+             result +=`
+              <tr class="text-dark">
+                  <td>${i}</td>
+                  <td>${book.title}</td>
+                  <td>${book.author}</td>
+                  <td>${book.link}</td>
+                  <td><button type="button" id="deleteBook" class="btn btn-outline-danger fw-bold " value="${book.id}">Delete</button></td>
+              </tr>
+             `
+            })                             
+          }).then(response =>{
+              document.getElementById(div).innerHTML = result
+          }) 
+}
+export function deleteBook(id){
+  fetch(`http://localhost:4000/books/${id}`, {
+          method: "DELETE",
+          headers: {
+              'Content-type': 'application/json'
+          }
+      })
+      
+      .then(res => res.json())
+      .then(data => {alert('Book Deleted!') 
+      location.reload()})
+      .catch(error => console.log(error))
 }

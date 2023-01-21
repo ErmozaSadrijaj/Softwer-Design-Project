@@ -29,13 +29,54 @@
         </div>
     </section>
 
+    <div class="addGradeButton">
+        <button type="button" id="addGradeBtn" class="btn btn-primary m-1  float-end mx-5 mt-2" data-bs-toggle="modal"  data-bs-target="#addGrade">
+            Add Grade
+          </button>
+    </div>
+
+    <!--Modal  1-->
+
+<div class="modal fade" id="addGrade" tabindex="-1" aria-labelledby="addGradeLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="addGradeLabel">Add Grade:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form class="d-flex flex-column">
+            <label for="grade">Select Grade:</label>
+            <select name="grade" id="grade">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <label for="course">Select Course:</label>
+            <select name="course" id="course"></select>
+            <label for="teacher">Select Teacher:</label>
+            <select name="teacher" id="teacher"></select>
+            <label for="student">Select Student:</label>
+            <select name="student" id="student"></select>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="addGradeModalButton">Add Grade</button>
+        </div>
+    </div>
+    </div>
+</div>
+
      <!---footer-->
 <footer id="footer">
     
 </footer>
 <script type="module">
-    import {getNavbar,getFooter,getItemFromURL} from '/jsFiles/mainElements.js'
-    import {getOneStudent,getStudentGrades,signOut} from '/jsFiles/users.js'
+    import {getNavbar,getFooter,getItemFromURL,signOut} from '/jsFiles/mainElements.js'
+    import {getOneStudent,getStudentGrades} from '/jsFiles/users.js'
 
     getNavbar('navbar')
     getFooter('footer')

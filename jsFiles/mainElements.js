@@ -9,11 +9,13 @@ export function getNavbar(div){
       <ul class="navbar-nav" >
         <li class="nav-item ">
           <a class="nav-link d-flex" id="home" href="/home.html">Home</a>
-          <a class="nav-link d-none" id="teacher" href="/teacher.html">Profile</a>
-          <a class="nav-link d-none" id="student-profile" href="/student.html">Profile</a>
+          <a class="nav-link d-none" id="teacher" href="/user.html">Profile</a>
+          <a class="nav-link d-none" id="student-profile" href="/user.html">Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link d-flex" id="Blog" href="/Blo.html">Blog</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link d-none" id="Library" href="/Library.html">Library</a>
         </li>
         <li class="nav-item">
@@ -45,9 +47,7 @@ export function getNavbar(div){
       out.classList.add('d-flex')
       out.classList.remove('d-none')
 
-      const Blog = document.getElementById('Blog')
-      Blog.classList.add('d-none')
-      Blog.classList.remove('d-flex')
+   
 
       const Library = document.getElementById('Library')
       Library.classList.add('d-flex')
@@ -81,7 +81,7 @@ export function getNavbar(div){
         const prf = document.getElementById('student-profile')
         prf.classList.add('d-flex')
         prf.classList.remove('d-none')
-
+        
       }
 
       const home = document.getElementById('home')
@@ -90,6 +90,49 @@ export function getNavbar(div){
   
     }
 }
+export function getAdminNavbar(div){
+  const id = localStorage.getItem('currentID')
+    let result =  `<nav class="navbar navbar-expand-sm navbar-dark">
+    <h4 class="mt-2"><a class="Title mx-2"> Gjimnazi "Bedri Pejani"</a></h4>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mx-3" id="navbarNavDropdown">
+      <ul class="navbar-nav" >
+        <li class="nav-item ">
+          <a class="nav-link d-flex" id="admin-profile" href="/user.html">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex" id="manage-library" href="/admin/manageLibrary.html">Manage Library</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex" id="manage-courses" href="/admin/manageCourses.html">Manage Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex" id="manage-users" href="/admin/manageUsers.html">Manage Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link d-flex" id="login" href="Login.html">Log In</a>
+          <a class="nav-link d-none" id="sign-out" href="/home.html">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>`
+    
+    document.getElementById(div).innerHTML = result
+    let a = localStorage.getItem('user')
+    if(a === 'admin'){
+
+      const login = document.getElementById('login')
+      login.classList.add('d-none')
+      login.classList.remove('d-flex')
+
+      const out = document.getElementById('sign-out')
+      out.classList.add('d-flex')
+      out.classList.remove('d-none')
+    }
+}
+
 export function getItemFromURL(url, item) {
   if(!url.includes('?')) return null
   const url_sp = new URLSearchParams(url.split('?')[1])
@@ -137,3 +180,7 @@ export function getFooter(div){
   document.getElementById(div).innerHTML = result
 }
 
+export function signOut(){
+  localStorage.clear()
+  window.location = '/home.html'
+}

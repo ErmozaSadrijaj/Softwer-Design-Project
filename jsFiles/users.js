@@ -11,13 +11,26 @@ export function userLogin(){
             teachers.forEach(teacher =>{
                     if(teacher.email === email && teacher.password === ps){
                         kaUser =  true                    
-                        window.location = './teacher.html'
+                        window.location = './user.html'
                         localStorage.setItem('user','teacher')
                         localStorage.setItem('currentID',teacher.id)
                     
                     }
                 })            
-        })
+        }).then(response => {
+            fetch(`http://localhost:4000/admins`)
+            .then(response => response.json())
+            .then(admins => {  
+                admins.forEach(admin =>{
+                    if(admin.email === email && admin.password === ps){
+                        kaUser =  true                    
+                        window.location = './user.html'
+                        localStorage.setItem('user','admin')
+                        localStorage.setItem('currentID',admin.id)
+                    
+                    }
+                })    
+              }).then(response => {
         fetch(`http://localhost:4000/students`)
         .then(response => response.json())
         .then(students => {    
@@ -26,18 +39,21 @@ export function userLogin(){
                     if(student.email === email && student.password === ps){
 
                         kaUser = true                       
-                        window.location = './student.html'
+                        window.location = './user.html'
                         localStorage.setItem('user','student')
                         localStorage.setItem('currentID',student.id)
 
                     }
-                })               
-                if(!kaUser){
-                    alert('Incorrect Email or Password')
-                }                   
+                }).then(response =>{
+                    if(!kaUser){
+                        alert('Incorrect Email or Password')
+                    }    
+                })                                
         })
-          
+    })
+    }) 
 }
+
 export function getStudents(div){
 
     let result = '';
@@ -151,12 +167,8 @@ export function getUserProfile(database,div){
     let result = ''
     let i = 0
     const id = localStorage.getItem('currentID')
-    let type = ''
-    if(database == 'teachers'){
-        type = 'professional teacher'
-    }else{
-        type = 'student'
-    }
+    let type = database
+    database += 's'
   fetch(`http://localhost:4000/${database}/${id}`)
   .then(response => response.json())
   .then(user => {   
@@ -184,7 +196,208 @@ export function getUserProfile(database,div){
     })
      
 } 
-export function signOut(){
-    localStorage.clear()
-    window.location = '/home.html'
+
+export function getAllUsers(div){
+
+    let result = ''
+    let i = 0
+    result +=`
+        <tr class="fs-5 bg-dark fw-bold">
+                <td style="border-bottom:2px solid #f46533 !important">Nr.</td>
+                <td style="border-bottom:2px solid #f46533 !important">Role</td>
+                <td style="border-bottom:2px solid #f46533 !important">Name</td>
+                <td style="border-bottom:2px solid #f46533 !important">Surname</td>
+                <td style="border-bottom:2px solid #f46533 !important">Email</td>
+                <td style="border-bottom:2px solid #f46533 !important">Personal Number</td>
+                <td style="border-bottom:2px solid #f46533 !important">Phone Number</td>
+                <td style="border-bottom:2px solid #f46533 !important">Picture</td>
+                <td style="border-bottom:2px solid #f46533 !important">Options</td>
+        </tr> 
+    `
+    fetch(`http://localhost:4000/teachers`)
+    .then(response => response.json())
+    .then(teachers => {    
+          
+        teachers.forEach(teacher =>{
+            i++
+               result +=`
+                <tr class="text-dark">
+                    <td>${i}</td>
+                    <td>Teacher</td>
+                    <td>${teacher.name}</td>
+                    <td>${teacher.surname}</td>
+                    <td>${teacher.email}</td>
+                    <td>${teacher.personalNumber}</td>
+                    <td>${teacher.phoneNumber}</td>
+                    <td><img src="../${teacher.pic}" class="img-fluid rounded-circle" style="width:10vh"/></td>
+                    <td><button type="button" id="deleteTeacher" class="btn btn-outline-danger fw-bold " value="${teacher.id}">Delete</button></td>
+                
+                </tr>
+               `
+            })            
+    }).then(response => {
+        fetch(`http://localhost:4000/admins`)
+        .then(response => response.json())
+        .then(admins => {  
+            admins.forEach(admin =>{
+                i++
+                result +=`
+                <tr class="text-dark">
+                    <td>${i}</td>
+                    <td>Admin</td>
+                    <td>${admin.name}</td>
+                    <td>${admin.surname}</td>
+                    <td>${admin.email}</td>
+                    <td>${admin.personalNumber}</td>
+                    <td>${admin.phoneNumber}</td>
+                    <td><img src="../${admin.pic}" class="img-fluid rounded-circle" style="width:10vh"/></td>
+                    <td><button type="button" id="deleteAdmin" class="btn btn-outline-danger fw-bold " value="${admin.id}">Delete</button></td>
+                
+                </tr>
+               `
+            })    
+          }).then(response => {
+            fetch(`http://localhost:4000/students`)
+            .then(response => response.json())
+            .then(students => {    
+                
+                students.forEach(student =>{
+                    i++
+                    result +=`
+                    <tr class="text-dark">
+                        <td>${i}</td>
+                        <td>Student</td>
+                        <td>${student.name}</td>
+                        <td>${student.surname}</td>
+                        <td>${student.email}</td>
+                        <td>${student.personalNumber}</td>
+                        <td>${student.phoneNumber}</td>
+                        <td><img src="../${student.pic}" class="img-fluid rounded-circle" style="width:10vh"/></td>
+                        <td><button type="button" id="deleteStudent" class="btn btn-outline-danger fw-bold " value="${student.id}">Delete</button></td>
+                    
+                    </tr>
+                `
+                    })                             
+            }).then(response =>{
+                document.getElementById(div).innerHTML = result
+            }) 
+        }) 
+    })
 }
+export function getSpecificUser(){
+
+    var options = []
+    fetch(`http://localhost:4000/teachers`)
+    .then(response => response.json())
+    .then(teachers => {    
+          
+        teachers.forEach(teacher =>{
+          
+                if(!options.includes(teacher.name)){
+                    options.push(teacher.name)
+                }
+
+              })                             
+        }).then(response =>{
+           
+            var select = document.getElementById("selectMainTeacher");
+                for (var i = 0; i < options.length; i++) {
+                    var opt = options[i];
+                    var el = document.createElement("option");
+                    el.textContent = opt;
+                    el.value = opt;
+                    select.appendChild(el);
+                }
+        })
+  }
+
+  export function addTeacherAdmin(){
+    const name = document.getElementById('user-name').value
+    const surname = document.getElementById('user-surname').value
+    const email = document.getElementById('user-email').value
+    const prNr = document.getElementById('user-prNr').value
+    const phNr = document.getElementById('user-phNr').value
+    var pic = './Photo/'
+    pic += document.getElementById('user-pic').files[0].name
+    const psw = document.getElementById('user-psw').value
+    const role = document.getElementById('selectRole').value
+    var type = ''
+    if(role == 'teacher'){
+        type = 'teachers'
+    }else if(role == 'admin'){
+        type = 'admins'
+    }
+
+    fetch(`http://localhost:4000/${type}/`, {
+        method: 'POST',
+       headers: {
+           'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({
+        
+        name: name,
+        surname: surname,
+        personalNumber: prNr,
+        phoneNumber: phNr,
+        email: email,
+        pic: pic,
+        password: psw
+             
+         })
+       })
+       .then(response => response.json())
+       .then(data => {
+            alert(`${role} successfully added!`) 
+           
+        }) 
+       .catch(error => alert(error))
+  }
+  export function addStudent(){
+
+    const name = document.getElementById('student-name').value
+    const surname = document.getElementById('student-surname').value
+    const email = document.getElementById('student-email').value
+    const prNr = document.getElementById('student-prNr').value
+    const phNr = document.getElementById('student-phNr').value
+    var pic = './Photo/'
+    pic += document.getElementById('student-pic').files[0].name
+    const psw = document.getElementById('student-psw').value
+    const mainTeacher = document.getElementById('selectMainTeacher').value
+
+    fetch(`http://localhost:4000/students/`, {
+        method: 'POST',
+       headers: {
+           'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({
+           name: name,
+           surname: surname,
+           personalNumber: prNr,
+           phoneNumber: phNr,
+           email: email,
+           pic: pic,
+           password: psw,
+           teacherId: mainTeacher
+             
+         })
+       })
+       .then(response => response.json())
+       .then(data => {
+            alert('Student successfully added!') 
+           
+        }) 
+       .catch(error => alert(error))
+  }
+  export function deleteUser(type,id){
+    fetch(`http://localhost:4000/${type}/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+        
+        .then(res => res.json())
+        .then(data => {alert('User Deleted!') 
+        location.reload()})
+        .catch(error => console.log(error))
+  }

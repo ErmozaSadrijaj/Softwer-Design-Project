@@ -128,3 +128,92 @@ function getDateAndTime(){
         .catch(error => console.log(error))
   }
   
+  export function getAllCourses(div){
+  
+    let result = ''
+    let i = 0
+    result +=`
+        <tr class="fs-5 bg-dark fw-bold">
+                <td style="border-bottom:2px solid #f46533 !important">Nr.</td>
+                <td style="border-bottom:2px solid #f46533 !important">Title</td>
+                <td style="border-bottom:2px solid #f46533 !important">Category</td>
+                <td style="border-bottom:2px solid #f46533 !important">Options</td>
+        </tr> 
+    `
+    fetch(`http://localhost:4000/courses`)
+    .then(response => response.json())
+    .then(courses => {    
+          
+        courses.forEach(course =>{
+            i++
+               result +=`
+                <tr class="text-dark">
+                    <td>${i}</td>
+                    <td>${course.title}</td>
+                    <td>${course.category}</td>
+                    <td><button type="button" id="deleteCourse" class="btn btn-outline-danger fw-bold " value="${course.id}">Delete</button></td>
+                </tr>
+               `
+              })                             
+            }).then(response =>{
+                document.getElementById(div).innerHTML = result
+            }) 
+  }
+  export function deleteCourse(id){
+    fetch(`http://localhost:4000/courses/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+        
+        .then(res => res.json())
+        .then(data => {alert('Course Deleted!') 
+        location.reload()})
+        .catch(error => console.log(error))
+  }
+  export function getSpecificCourseData(){
+
+    var options = []
+    fetch(`http://localhost:4000/courses`)
+    .then(response => response.json())
+    .then(courses => {    
+          
+        courses.forEach(course =>{
+          
+                if(!options.includes(course.category)){
+                    options.push(course.category)
+                }
+
+              })                             
+        }).then(response =>{
+           
+            var select = document.getElementById("courses-select");
+                for (var i = 0; i < options.length; i++) {
+                    var opt = options[i];
+                    var el = document.createElement("option");
+                    el.textContent = opt;
+                    el.value = opt;
+                    select.appendChild(el);
+                }
+        })
+  }
+  export function addCourse(title,ctg,){
+    fetch(`http://localhost:4000/courses`, {
+        method: 'POST',
+       headers: {
+           'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({
+           title: title,
+           category: ctg
+             
+         })
+       })
+       .then(response => response.json())
+       .then(data => {
+                    alert('Course successfully added!') 
+                    location.reload()
+            })
+       .catch(error => alert(error))
+  }

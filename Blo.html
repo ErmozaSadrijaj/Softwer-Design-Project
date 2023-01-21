@@ -18,13 +18,17 @@
     
 </nav>
 
+
 <!---Content-->
-<div class="tit text-center m-5">
+<div class="tit text-center mt-5">
     <h1>Gjimnazi "Bedri Pejani" </h1>
     <span class="nentit">Blog</span>
 </div>
-<hr class="light">
-
+<hr class="light m-0">
+<button type="button" id="addBgBtn" class="btn btn-primary m-1 text-dark float-end mx-5" data-bs-toggle="modal"  data-bs-target="#addBlog">
+    Add Blog
+  </button>
+<br><br><br>
 <main>
     <div class="container">
         <div class="row" id="blog">
@@ -32,22 +36,59 @@
         </div>
     </div>
 </main>
-
+          <div class="modal fade" id="addBlog" tabindex="-1" aria-labelledby="addBlogLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="addBlogLabel">Add Blog</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form class="d-flex flex-column">
+                    <label for="title">Blog Title:</label>
+                    <input type="text" name="title" placeholder="Enter Blog Title..." id="blog-title">
+                    <label for="img">Blog Image Link:</label>
+                    <input type="file" name="img" placeholder="Select Image..." id="blog-image">
+                    <label for="content">Content:</label>
+                    <textarea type="text" name="content" placeholder="Type Your Opinion ..." rows="10" cols="50" id="blog-content"></textarea>
+                </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="addBlogButton">Add Blog</button>
+                </div>
+            </div>
+            </div>
+        </div>
 <!---footer-->
 <footer id="footer">
     
 </footer>
 </body>
 <script type="module">
-  import{getNavbar,getFooter} from '/jsFiles/mainElements.js'
-  import{getBlogs} from '/jsFiles/blog.js'
-  import{signOut} from '/jsFiles/users.js'
+  import{getNavbar,getFooter,signOut} from '/jsFiles/mainElements.js'
+  import{getBlogs,addBlog} from '/jsFiles/blog.js'
 
  
   getNavbar('navbar')
   getFooter('footer')
   getBlogs('blog')
   
+  var addBlogBtn = document.getElementById('addBgBtn')
+
+  if(localStorage.getItem('user') != 'teacher'){
+    addBlogBtn.classList.remove('d-flex')
+    addBlogBtn.classList.add('d-none')
+  }
+  const addFromModal = document.getElementById('addBlogButton')
+  addFromModal.addEventListener('click', e =>{
+    e.preventDefault()
+    var title = document.getElementById('blog-title').value
+    var img = './Photo/'
+     img += document.getElementById('blog-image').files[0].name
+    var content = document.getElementById('blog-content').value
+    addBlog(title,img,content)
+  })
     const rm = document.getElementById('readMore')
     rm.addEventListener('click' , e =>{
         e.preventDefault
@@ -56,7 +97,7 @@
     const a = document.querySelector('#sign-out')
           a.addEventListener('click', event => {
           event.preventDefault()
-         signOut()
+          signOut()
         })
 
 </script>

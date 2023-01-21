@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link  rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <script type="module" src="../jsFiles/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+<body>
+     <!--navbar-->
+     <nav id="navbar">
+    
+     </nav>
+     
+      <button type="button" id="addTeacherBtn" class="btn btn-primary m-1  float-end mr-5 mt-2" data-bs-toggle="modal"  data-bs-target="#addUser">
+        Add Teacher/Admin
+      </button>
+     <button type="button" id="addStudentBtn" class="btn btn-primary m-1  float-end mr-5 mt-2" data-bs-toggle="modal"  data-bs-target="#addStudent">
+        Add Student
+      </button>
+      
+      
+      <br><br><br>
+    <section class="container">
+        <div class="row">
+            <table class=" text-light table mt-3" id="table">
+                
+                
+            </table>           
+        </div>
+    </section>
+
+<!--Modal  1-->
+
+<div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="addBlogLabel">Add User:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form class="d-flex flex-column">
+            <label for="name">User Name:</label>
+            <input type="text" name="name" placeholder="Enter User Name..." id="user-name">
+            <label for="surname">User Surname:</label>
+            <input type="text" name="surname" placeholder="Enter User Surname..." id="user-surname">
+            <label for="email">User Email:</label>
+            <input type="email" name="email" placeholder="Enter User Email..." id="user-email">
+            <label for="psw">User Password:</label>
+            <input type="password" name="psw" placeholder="Enter User Password..." id="user-psw">
+            <label for="prNr">User Personal Number:</label>
+            <input type="number" name="prNr" placeholder="Enter User Personal Number..." id="user-prNr">
+            <label for="phNr">User Phone Number:</label>
+            <input type="number" name="phNr" placeholder="Enter User Email..." id="user-phNr">
+            <label for="pic">User Pic:</label>
+            <input type="file" name="pic" placeholder="Enter User Pic..." id="user-pic">
+            <label for="sel"  id="selectLabel">Select Role:</label>
+            <select  id="selectRole">
+                <option value="teacher">teacher</option>
+                <option value="admin">admin</option>
+            </select>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="addUserButton">Add User</button>
+        </div>
+    </div>
+    </div>
+</div>
+<!--Modal 2-->
+
+<div class="modal fade" id="addStudent" tabindex="-1" aria-labelledby="addStudentLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="addStudentLabel">Add Student:</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form class="d-flex flex-column">
+            <label for="name">Student Name:</label>
+            <input type="text" name="name" placeholder="Enter Student Name..." id="student-name">
+            <label for="surname">Student Surname:</label>
+            <input type="text" name="surname" placeholder="Enter Student Surname..." id="student-surname">
+            <label for="email">Student Email:</label>
+            <input type="email" name="email" placeholder="Enter Student Email..." id="student-email">
+            <label for="psw">Student Password:</label>
+            <input type="password" name="psw" placeholder="Enter Student Password..." id="student-psw">
+            <label for="prNr">Student Personal Number:</label>
+            <input type="number" name="prNr" placeholder="Enter Student Personal Number..." id="student-prNr">
+            <label for="phNr">Student Phone Number:</label>
+            <input type="number" name="phNr" placeholder="Student User Email..." id="student-phNr">
+            <label for="pic">Student Pic:</label>
+            <input type="file" name="pic" placeholder="Student User Pic..." id="student-pic">
+            <label for="sel"  id="selectLabel">Select Main Teacher:</label>
+            <select  id="selectMainTeacher">
+                
+            </select>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="addStudentModalButton">Add Student</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script type="module">
+    import {getAdminNavbar,signOut} from '/jsFiles/mainElements.js'
+    import {getAllUsers,getSpecificUser, addStudent,addTeacherAdmin,deleteUser} from '/jsFiles/users.js'
+
+    getAdminNavbar('navbar')
+    getAllUsers('table')
+
+    const getSU = document.querySelector("#addStudentBtn");
+    getSU.addEventListener("click", e =>{  
+        e.preventDefault
+        getSpecificUser()
+    });
+    const addStudentModal = document.querySelector('#addStudentModalButton')
+    addStudentModal.addEventListener('click', event => {
+            event.preventDefault()
+            addStudent()
+          })
+    const addUserModal = document.querySelector('#addUserButton')
+    addUserModal.addEventListener('click', event => {
+            event.preventDefault()
+            addTeacherAdmin()
+          })
+
+    const parent = document.querySelector("#table");
+        parent.addEventListener("click", function(event) {
+        var buttonValue = event.target.getAttribute("value");
+        if(event.target && event.target.id === "deleteTeacher") {                    
+            deleteUser('teachers',buttonValue)
+        }
+        else if(event.target && event.target.id === "deleteAdmin") {                    
+            deleteUser('admins',buttonValue)
+        }else if(event.target && event.target.id === "deleteStudent") {                    
+            deleteUser('students',buttonValue)
+        }
+    });      
+    const a = document.querySelector('#sign-out')
+            a.addEventListener('click', event => {
+            event.preventDefault()
+            signOut()
+          })
+</script>
+</body>
+</html>

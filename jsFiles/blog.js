@@ -47,3 +47,21 @@ export function getOneBlog(div,id){
             document.getElementById(div).innerHTML = result
         })
 }
+export function addBlog(title,img,content){
+    
+    fetch(`http://localhost:4000/blogs`, {
+       method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          title: title,
+          pic: img,                
+          content: content
+            
+        })
+      })
+      .then(response => response.json())
+      .then(data => window.confirm('Book successfully added!'))
+      .catch(error => alert(error))
+  }

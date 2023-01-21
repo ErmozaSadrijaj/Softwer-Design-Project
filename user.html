@@ -4,42 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student</title>
+    <title>User Profile</title>    
     <link  rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <script type="module" src="./jsFiles/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./css/Teacher.css">
+    <link rel="stylesheet" type="text/css" href="./css/user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
 </head>
 <body>
-         <!--navbar-->
+    
+  <!--navbar-->
   <nav id="navbar">
     
   </nav>
 
+  <!---container-->
   <div class="container" id="user-profile">
    
   </div>
-  
+
+
+
 
 <!---Footer-->
 <footer id="footer">
     
 </footer>
-
 </body>
 <script type="module">
-    import{getNavbar,getFooter} from '/jsFiles/mainElements.js'
-    import{signOut,getUserProfile} from '/jsFiles/users.js'
+  import{getNavbar,getFooter,getAdminNavbar,signOut} from '/jsFiles/mainElements.js'
+  import{getUserProfile} from '/jsFiles/users.js'
 
-   
-    getNavbar('navbar')
-    getFooter('footer')
-    getUserProfile('students','user-profile')
-    const a = document.querySelector('#sign-out')
-            a.addEventListener('click', event => {
-            event.preventDefault()
-           signOut()
-          })
-  </script>
+  var tb = localStorage.getItem('user')
+  if(tb != 'admin'){
+        getNavbar('navbar')
+        getFooter('footer')
+  }else{
+    getAdminNavbar('navbar')
+  }
+  
+  getUserProfile(tb,'user-profile')
+
+  const a = document.querySelector('#sign-out')
+          a.addEventListener('click', event => {
+          event.preventDefault()
+         signOut()
+        })
+</script>
 </html>
