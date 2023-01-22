@@ -121,7 +121,7 @@
     const getSU = document.querySelector("#addStudentBtn");
     getSU.addEventListener("click", e =>{  
         e.preventDefault
-        getSpecificUser()
+        getSpecificUser('teachers','selectMainTeacher')
     });
     const addStudentModal = document.querySelector('#addStudentModalButton')
     addStudentModal.addEventListener('click', event => {
@@ -141,7 +141,11 @@
             deleteUser('teachers',buttonValue)
         }
         else if(event.target && event.target.id === "deleteAdmin") {                    
-            deleteUser('admins',buttonValue)
+            if(localStorage.getItem('currentID') == buttonValue ){
+                alert('invalid')
+            } else {
+                deleteUser('admins',buttonValue)
+            }
         }else if(event.target && event.target.id === "deleteStudent") {                    
             deleteUser('students',buttonValue)
         }

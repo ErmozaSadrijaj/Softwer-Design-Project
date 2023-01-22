@@ -141,7 +141,7 @@ export function getItemFromURL(url, item) {
 }
 export function getFooter(div){
     let result = `<div class="mt-5 pt-5 pb-5 footer">
-    <div class="container">
+    <div class="container ">
       <div class="row">
         <div class="col-lg-5 col-xs-12">
           <h2>Gjimnazi "Bedri Pejani"</h2>
@@ -183,4 +183,12 @@ export function getFooter(div){
 export function signOut(){
   localStorage.clear()
   window.location = '/home.html'
+}
+export function checkValidity(){
+  let kaUser = localStorage.getItem('user')
+  
+  if(kaUser === null){
+      alert('You need to log in to advance!')
+      location.href = 'Login.html'
+  }
 }

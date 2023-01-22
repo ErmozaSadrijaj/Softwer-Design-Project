@@ -284,28 +284,35 @@ export function getAllUsers(div){
         }) 
     })
 }
-export function getSpecificUser(){
-
+export function getSpecificUser(type,selectId){
     var options = []
-    fetch(`http://localhost:4000/teachers`)
+    var values = []
+    fetch(`http://localhost:4000/${type}`)
     .then(response => response.json())
-    .then(teachers => {    
+    .then(users => {    
           
-        teachers.forEach(teacher =>{
-          
-                if(!options.includes(teacher.name)){
-                    options.push(teacher.name)
+        users.forEach(user =>{
+             
+                if(type === 'courses'){
+                    if(!options.includes(user.title)){
+                        options.push(user.title)
+                        values.push(user.title)
+                    }    
+                }else {
+                    if(!options.includes(user.name)){
+                        options.push(user.name)
+                        values.push(user.id)
+                    }
                 }
-
+                
               })                             
         }).then(response =>{
-           
-            var select = document.getElementById("selectMainTeacher");
+            var select = document.getElementById(selectId);
                 for (var i = 0; i < options.length; i++) {
                     var opt = options[i];
                     var el = document.createElement("option");
                     el.textContent = opt;
-                    el.value = opt;
+                    el.value = values[i];
                     select.appendChild(el);
                 }
         })
@@ -334,14 +341,14 @@ export function getSpecificUser(){
            'Content-Type': 'application/json'
        },
        body: JSON.stringify({
-        
-        name: name,
-        surname: surname,
-        personalNumber: prNr,
-        phoneNumber: phNr,
-        email: email,
-        pic: pic,
-        password: psw
+            
+            name: name,
+            surname: surname,
+            personalNumber: prNr,
+            phoneNumber: phNr,
+            email: email,
+            pic: pic,
+            password: psw
              
          })
        })
@@ -401,3 +408,70 @@ export function getSpecificUser(){
         location.reload()})
         .catch(error => console.log(error))
   }
+
+  export function addGrade(studentId){
+
+    let grade = document.getElementById('grade-select').value
+    let course = document.getElementById('course-select').value
+    let teacher = document.getElementById('teacher-select').value
+
+
+    fetch(`http://localhost:4000/grades`, {
+        method: 'POST',
+       headers: {
+           'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({
+           
+           grade:grade,
+           teacherId:teacher,
+           course:course,
+           studentId:studentId
+         })
+       })
+       .then(response => response.json())
+       .then(data => { 
+            alert(`Grade successfully added!`)           
+        }) 
+       .catch(error => alert(error))
+  }
+export function getStaff(div,limit){
+    let result = ''
+    fetch(`http://localhost:4000/admins`)
+        .then(response => response.json())
+        .then(admins => {
+           
+           
+           
+            admins.forEach(admin =>{
+                   
+                       if(limit == null || limit != 0){
+                        result +=`
+                            <div class="col-lg-3">
+                            <div class="card h-100">
+                            <div class="card-body "><img src="${admin.pic}" alt="" class="w-100 card-img-top">
+                                <div class="p-4">
+                                <h5 class="mb-0">${admin.name}</h5>
+                                <p class="small text-muted">CEO </p>
+                                <ul class="social mb-0 list-inline mt-3">
+                                    <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
+                                    <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    `
+                    
+                        limit--
+                }
+                         
+                    
+            })
+            
+           
+            document.getElementById(div).innerHTML = result
+        })
+}

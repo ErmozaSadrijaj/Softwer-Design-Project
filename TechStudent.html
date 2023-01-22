@@ -8,7 +8,8 @@
     <link rel="stylesheet" type="text/css" href="./css/TechStudent.css">
    <link  rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <script type="module" src="./jsFiles/bootstrap.bundle.min.js"></script>
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
     <!--navbar-->
@@ -30,10 +31,10 @@
 </footer>
 </body>
 <script type="module">
-  import{getNavbar,getFooter,signOut} from '/jsFiles/mainElements.js'
+  import{getNavbar,getFooter,signOut,checkValidity} from '/jsFiles/mainElements.js'
   import{getStudents} from '/jsFiles/users.js'
   
- 
+  checkValidity()
   getNavbar('navbar')
   getFooter('footer')
   getStudents('table')

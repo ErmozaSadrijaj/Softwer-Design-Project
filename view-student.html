@@ -47,7 +47,7 @@
         <div class="modal-body">
         <form class="d-flex flex-column">
             <label for="grade">Select Grade:</label>
-            <select name="grade" id="grade">
+            <select name="grade" id="grade-select">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -55,11 +55,10 @@
                 <option value="5">5</option>
             </select>
             <label for="course">Select Course:</label>
-            <select name="course" id="course"></select>
+            <select name="course" id="course-select"></select>
             <label for="teacher">Select Teacher:</label>
-            <select name="teacher" id="teacher"></select>
-            <label for="student">Select Student:</label>
-            <select name="student" id="student"></select>
+            <select name="teacher" id="teacher-select"></select>
+           
         </form>
         </div>
         <div class="modal-footer">
@@ -75,9 +74,11 @@
     
 </footer>
 <script type="module">
-    import {getNavbar,getFooter,getItemFromURL,signOut} from '/jsFiles/mainElements.js'
-    import {getOneStudent,getStudentGrades} from '/jsFiles/users.js'
+    import {getNavbar,getFooter,getItemFromURL,signOut,checkValidity} from '/jsFiles/mainElements.js'
+    import {getOneStudent,getStudentGrades,getSpecificUser,addGrade} from '/jsFiles/users.js'
 
+    
+    checkValidity()
     getNavbar('navbar')
     getFooter('footer')
 
@@ -85,6 +86,19 @@
     getOneStudent('student-content',getId)
     getStudentGrades('table',getId)
 
+    const getOptions = document.querySelector("#addGradeBtn");
+    getOptions.addEventListener("click", e =>{  
+        e.preventDefault
+        getSpecificUser('courses','course-select')
+        getSpecificUser('teachers','teacher-select')
+          
+    });
+
+    const modalButton = document.getElementById('addGradeModalButton')
+    modalButton.addEventListener('click', event => {
+            event.preventDefault()
+            addGrade(getId)
+          })
     const a = document.querySelector('#sign-out')
             a.addEventListener('click', event => {
             event.preventDefault()

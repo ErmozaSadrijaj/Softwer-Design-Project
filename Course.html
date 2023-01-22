@@ -44,9 +44,11 @@
 </footer>
 </body>
 <script type="module">
-  import{getNavbar,getFooter,signOut} from '/jsFiles/mainElements.js'
+  import{getNavbar,getFooter,signOut,checkValidity} from '/jsFiles/mainElements.js'
   import{getCourses} from '/jsFiles/courses.js'
  
+  
+  checkValidity()
   getNavbar('navbar')
   getFooter('footer')
   getCourses()

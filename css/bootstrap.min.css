@@ -46,7 +46,7 @@
    .footer{
     background: #152F4F;
     width: 100%;
-    color:white; 
+    color:white  !important; 
     display: flex;
   }
   .col-xs-12 h2 {
@@ -68,7 +68,7 @@
     color: #EDEEF2;
   }
   .col-lg-2{
-    margin-left: 90px;
+    margin-left: 85px;
   }
   .mt-lg-0{
     display: flex;
@@ -87,7 +87,7 @@
       list-style-type: none;
       }
       .links li a{
-        color: white;
+        color: white !important;
         transition: color .2s;}
         .links li a :hover{
           text-decoration:none;

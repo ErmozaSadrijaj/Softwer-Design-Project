@@ -59,9 +59,11 @@
     
 </footer>
 <script type="module">
-    import {getNavbar,getFooter,getItemFromURL,signOut} from '/jsFiles/mainElements.js'
+    import {getNavbar,getFooter,getItemFromURL,signOut,checkValidity} from '/jsFiles/mainElements.js'
     import {getOneCourse,addTopic,deleteTopic} from '/jsFiles/courses.js'
 
+
+    checkValidity()
     getNavbar('navbar')
     getFooter('footer')
 

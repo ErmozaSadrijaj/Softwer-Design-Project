@@ -3,23 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-/*Content*/
-.tit{
-  font-size: 40px;
-  font-style: italic;
-  position: relative;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-.nentit{
-  font-size: 30px;
-  text-align: center;
-}
-.light{
-border: 1px solid black;
-max-width: 1000px;
-}
 /* global styling */
 
 img{

@@ -20,11 +20,11 @@
 
 
 <!---Content-->
-<div class="tit text-center mt-5">
-    <h1>Gjimnazi "Bedri Pejani" </h1>
-    <span class="nentit">Blog</span>
+<div class="mt-4 text-center">  
+  <p class="text-uppercase font-weight-bold font-italic h1">Blog </p>
 </div>
-<hr class="light m-0">
+<hr class="light m-auto" style="width: 50%; border: 1px solid black; " >
+
 <button type="button" id="addBgBtn" class="btn btn-primary m-1 text-dark float-end mx-5" data-bs-toggle="modal"  data-bs-target="#addBlog">
     Add Blog
   </button>
@@ -72,7 +72,7 @@
  
   getNavbar('navbar')
   getFooter('footer')
-  getBlogs('blog')
+  getBlogs('blog',null)
   
   var addBlogBtn = document.getElementById('addBgBtn')
 

@@ -16,9 +16,11 @@
   <nav id="navbar">
     
 </nav>
-<!--cocntent-->
 
-<img src="/Photo/gjimnazi.jpg" class="img-fluid w-100 h-50" alt="Bedri Pejani ">
+<!--cocntent-->
+<div class="mainPic">
+      <img class="d-block w-100" src="./Photo/gjim.jpg" alt="First slide">
+</div>
 
 <!--Blogu--->
 <div class="Blog">
@@ -28,33 +30,11 @@
     </a>
     <hr class="light1" color="black">
   </div>
-  <div class="card-blog">
-  <div class="card" style="width: 300px;">
-    <img class="card-img" src="/Photo/gjimnazi.jpg" alt="Gjimnazi"/>
-    <div class="card-img-overlay text-white">
-      <h2 class="card-title">Lorem ipsum</h2>
-      <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-      <a href="blog.html" class="btn btn-secondary">Learn more</a>
+    <div class="container">
+        <div class="row d-flex justify-content-center" id="blog">
+            
+        </div>
     </div>
-  </div>
-
-  <div class="card " style="width: 300px;">
-    <img class="card-img" src="/Photo/gjimnazi.jpg" alt="Gjimnazi"/>
-    <div class="card-img-overlay text-white">
-      <h2 class="card-title">Lorem ipsum</h2>
-      <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-      <a href="blog.html" class="btn btn-secondary">Learn more</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 300px;">
-    <img class="card-img" src="/Photo/gjimnazi.jpg" alt="Gjimnazi"/>
-    <div class="card-img-overlay text-white">
-      <h2 class="card-title">Lorem ipsum</h2>
-      <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-      <a href="blog.html" class="btn btn-secondary">Learn more</a>
-    </div>
-  </div>
 </div>
 
 
@@ -68,59 +48,9 @@
     <hr class="light1" color="black">
   </div>
   <!-- [Team]-->
-  <div class="row ">
-    <div class="col-lg-3">
-      <!-- Card-->
-      <div class="card h-100">
-        <div class="card-body "><img src="/Photo/principal.jpg" alt="" class="w-100 card-img-top">
-          <div class="p-4">
-            <h5 class="mb-0">Lorem Ispum</h5>
-            <p class="small text-muted">CEO </p>
-            <ul class="social mb-0 list-inline mt-3">
-              <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-              <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-              <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-              <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3  ">
-      <!-- Card-->
-      <div class="card  h-100">
-        <div class="card-body "><img src="/Photo/principal.jpg" alt="" class="w-100 card-img-top">
-          <div class="p-4">
-            <h5 class="mb-0">Lorem Ispum</h5>
-            <p class="small text-muted">CEO</p>
-            <ul class="social mb-0 list-inline mt-3">
-              <li class="list-inline-item ""><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-              <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-              <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-              <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3  ">
-      <!-- Card-->
-      <div class="card h-100">
-        <div class="card-body "><img src="/Photo/principal.jpg" alt="" class="w-100 card-img-top">
-          <div class="p-4">
-            <h5 class="mb-0">Lorem Ispum</h5>
-            <p class="small text-muted">CEO </p>
-            <ul class="social mb-0 list-inline mt-3">
-              <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-              <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-              <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-              <li class="list-inline-item "><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="row d-flex justify-content-center" id="staff-cards">
+   
+   
   </div>
   </div>
 
@@ -133,10 +63,13 @@
 </body>
 <script type="module">
   import{getNavbar,getFooter,signOut} from '/jsFiles/mainElements.js'
+  import{getBlogs} from '/jsFiles/blog.js'
+  import{getStaff} from '/jsFiles/users.js'
 
   getNavbar('navbar')
   getFooter('footer')
-  
+  getBlogs('blog',3)
+  getStaff('staff-cards',3)
   localStorage.clear()
     const a = document.querySelector('#sign-out')
           a.addEventListener('click', event => {

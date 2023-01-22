@@ -7,7 +7,6 @@
     <title>User Profile</title>    
     <link  rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <script type="module" src="./jsFiles/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./css/user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
 </head>
@@ -32,9 +31,11 @@
 </footer>
 </body>
 <script type="module">
-  import{getNavbar,getFooter,getAdminNavbar,signOut} from '/jsFiles/mainElements.js'
+  import{getNavbar,getFooter,getAdminNavbar,signOut,checkValidity} from '/jsFiles/mainElements.js'
   import{getUserProfile} from '/jsFiles/users.js'
 
+
+  checkValidity()
   var tb = localStorage.getItem('user')
   if(tb != 'admin'){
         getNavbar('navbar')

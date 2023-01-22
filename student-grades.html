@@ -29,9 +29,10 @@
     
 </footer>
 <script type="module">
-    import {getNavbar,getFooter,getItemFromURL,signOut} from '/jsFiles/mainElements.js'
+    import {getNavbar,getFooter,getItemFromURL,signOut,checkValidity} from '/jsFiles/mainElements.js'
     import {getOneStudent,getStudentGrades} from '/jsFiles/users.js'
 
+    checkValidity()
     getNavbar('navbar')
     getFooter('footer')
 
