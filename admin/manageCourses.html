@@ -56,9 +56,10 @@
 </div>
 
 <script type="module">
-    import {getAdminNavbar,signOut} from '/jsFiles/mainElements.js'
+    import {getAdminNavbar,signOut,checkValidity} from '/jsFiles/mainElements.js'
     import {getAllCourses,deleteCourse,getSpecificCourseData,addCourse} from '/jsFiles/Courses.js'
 
+    checkValidity('Admin')
     getAdminNavbar('navbar')
     getAllCourses('table')
 

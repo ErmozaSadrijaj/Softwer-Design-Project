@@ -66,6 +66,56 @@ export function addBlog(title,img,content){
         })
       })
       .then(response => response.json())
-      .then(data => window.confirm('Book successfully added!'))
+      .then(data => window.confirm('Blog successfully added!'))
       .catch(error => alert(error))
+  }
+
+  export function getAllBlogs(div){
+
+    let result = ''
+    let i = 0
+    result +=`
+        <tr class="fs-5 bg-dark fw-bold">
+                <td style="border-bottom:2px solid #f46533 !important">Nr.</td>
+                <td style="border-bottom:2px solid #f46533 !important">Title</td>
+                <td style="border-bottom:2px solid #f46533 !important">Img</td>
+                <td style="border-bottom:2px solid #f46533 !important">Content</td>
+                <td style="border-bottom:2px solid #f46533 !important">Options</td>
+        </tr> 
+    `
+    fetch(`http://localhost:4000/blogs`)
+    .then(response => response.json())
+    .then(blogs => {    
+          
+        blogs.forEach(blog =>{
+            i++
+               result +=`
+                <tr class="text-dark">
+                    <td>${i}</td>
+                    <td>${blog.title}</td>
+                    <td style="width:15% !important "><img class="w-100 rounded-circle bg-secondary"src="../${blog.pic}"/>
+                    </td>
+                    <td>${blog.content.substring(0,250)} <a href="/blog.html?id=${blog.id}">Read More...</a></td>
+                    <td><button type="button" id="deleteBlog" class="btn btn-outline-danger fw-bold " value="${blog.id}">Delete</button></td>
+                </tr>
+               `
+              })                             
+            }).then(response =>{
+                document.getElementById(div).innerHTML = result
+            }) 
+  }
+  export function deleteBlog(id){
+    fetch(`http://localhost:4000/blogs/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+        
+        .then(res => res.json())
+        .then(data => {
+            alert('Blog Deleted!') 
+            location.reload()
+    })
+        .catch(error => console.log(error))
   }

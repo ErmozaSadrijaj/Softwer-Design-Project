@@ -77,7 +77,8 @@
       "email": "admin1@gmail.com",
       "pic": "./Photo/admin.png",
       "password": "1"
-    },{
+    },
+    {
       "id": 2,
       "name": "admin2",
       "surname": "surname2",
@@ -86,7 +87,8 @@
       "email": "admin2@gmail.com",
       "pic": "./Photo/admin.png",
       "password": "1"
-    },{
+    },
+    {
       "id": 3,
       "name": "admin3",
       "surname": "surname3",
@@ -95,7 +97,8 @@
       "email": "admin3@gmail.com",
       "pic": "./Photo/admin.png",
       "password": "1"
-    },{
+    },
+    {
       "id": 4,
       "name": "admin4",
       "surname": "surname4",
@@ -104,7 +107,8 @@
       "email": "admin4@gmail.com",
       "pic": "./Photo/admin.png",
       "password": "1"
-    },{
+    },
+    {
       "id": 5,
       "name": "admin5",
       "surname": "surname5",
@@ -264,13 +268,6 @@
     }
   ],
   "topics": [
-    {
-      "id": 1,
-      "title": "Kimi - Ligjërata 1",
-      "link": "https://www.iusb.edu/students/academic-success-programs/academic-centers-for-excellence/docs/Basic%20Math%20Review%20Card.pdf",
-      "courseId": 1,
-      "dateTime": "17/01/2023  11:00"
-    },
     {
       "id": 15,
       "title": "Kimi - Ligjërata 2",

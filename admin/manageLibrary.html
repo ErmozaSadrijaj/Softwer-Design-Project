@@ -56,9 +56,11 @@
 </div>
 
 <script type="module">
-    import {getAdminNavbar,signOut} from '/jsFiles/mainElements.js'
+    import {getAdminNavbar,signOut,checkValidity} from '/jsFiles/mainElements.js'
     import {getAllBooks,addBook,deleteBook} from '/jsFiles/library.js'
 
+
+    checkValidity('Admin')
     getAdminNavbar('navbar')
     getAllBooks('table')
 

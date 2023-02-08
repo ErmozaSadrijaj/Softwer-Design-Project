@@ -109,6 +109,9 @@ export function getAdminNavbar(div){
           <a class="nav-link d-flex" id="manage-courses" href="/admin/manageCourses.html">Manage Courses</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link d-flex" id="manage-blogs" href="/admin/manageBlog.html">Manage Blogs</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link d-flex" id="manage-users" href="/admin/manageUsers.html">Manage Users</a>
         </li>
         <li class="nav-item">
@@ -184,11 +187,11 @@ export function signOut(){
   localStorage.clear()
   window.location = '/home.html'
 }
-export function checkValidity(){
+export function checkValidity(type){
   let kaUser = localStorage.getItem('user')
   
   if(kaUser === null){
-      alert('You need to log in to advance!')
+      alert(`You need to log in as a ${type} to advance!`)
       location.href = 'Login.html'
   }
 }

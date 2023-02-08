@@ -5,15 +5,11 @@
   }
   /*Content*/
 .About{
-    font-size: 40px;
+    font-size: 80px;
     font-style: italic;
     position: relative;
     margin-top: 20px;
     margin-bottom: 20px;
-    text-align: center;
-  }
-  .nentit{
-    font-size: 30px;
     text-align: center;
   }
   .light{

@@ -112,9 +112,11 @@
 </div>
 
 <script type="module">
-    import {getAdminNavbar,signOut} from '/jsFiles/mainElements.js'
+    import {getAdminNavbar,signOut,checkValidity} from '/jsFiles/mainElements.js'
     import {getAllUsers,getSpecificUser, addStudent,addTeacherAdmin,deleteUser} from '/jsFiles/users.js'
 
+
+    checkValidity('Admin')
     getAdminNavbar('navbar')
     getAllUsers('table')
 

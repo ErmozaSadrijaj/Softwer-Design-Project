@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Blog</title>
+    <link  rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <script type="module" src="../jsFiles/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+<body>
+     <!--navbar-->
+     <nav id="navbar">
+    
+     </nav>
+
+    <section class="container">
+        <div class="row">
+            <table class=" text-light table mt-3" id="table">
+                
+                
+            </table>           
+        </div>
+    </section>
+
+
+
+<script type="module">
+    import {getAdminNavbar,signOut,checkValidity} from '/jsFiles/mainElements.js'
+    import {getAllBlogs,deleteBlog} from '/jsFiles/blog.js'
+
+    checkValidity('Admin')
+    getAdminNavbar('navbar')
+    getAllBlogs('table')
+
+
+    const parent = document.querySelector("#table");
+                parent.addEventListener("click", function(event) {
+                    var buttonValue = event.target.getAttribute("value");
+                    if(event.target && event.target.id === "deleteBlog") {
+                       
+                        deleteBlog(buttonValue)
+                    }
+            });
+
+
+    const a = document.querySelector('#sign-out')
+            a.addEventListener('click', event => {
+            event.preventDefault()
+            signOut()
+          })
+</script>
+</body>
+</html>
